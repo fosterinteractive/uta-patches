@@ -1,8 +1,8 @@
-commit 5afa55b9ce2ebd2be3971c7267fc9bf4b9d95b0d
+commit 8ea8454abaf23446e81018244a3c5858cc9ae749
 Author: Sebastian Galindo <sebastian@fosterinteractive.com>
-Date:   Fri Jan 20 15:56:07 2017 -0500
+Date:   Fri Jan 20 16:18:28 2017 -0500
 
-    Temop
+    Changed default icons to custom icons
 
 diff --git a/modules/contrib/anchor_link/js/plugins/link/plugin.js b/modules/contrib/anchor_link/js/plugins/link/plugin.js
 index 8f50b10..08ce5c7 100755
