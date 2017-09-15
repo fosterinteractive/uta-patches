@@ -1,67 +1,57 @@
 diff --git a/modules/contrib/anchor_link/js/plugins/link/plugin.js b/modules/contrib/anchor_link/js/plugins/link/plugin.js
-index 8f50b10..08ce5c7 100755
+index 8b14f26..d2a9d65 100755
 --- a/modules/contrib/anchor_link/js/plugins/link/plugin.js
 +++ b/modules/contrib/anchor_link/js/plugins/link/plugin.js
-@@ -74,7 +74,8 @@
- 				editor.ui.addButton( 'Link', {
- 					label: editor.lang.link.toolbar,
- 					command: 'link',
--					toolbar: 'links,10'
-+					toolbar: 'links,10',
-+					icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-plus.png'),
- 				} );
- 				editor.ui.addButton( 'Unlink', {
- 					label: editor.lang.link.unlink,
-@@ -134,6 +135,7 @@
- 						label: editor.lang.link.menu,
- 						command: 'link',
- 						group: 'link',
-+						icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-plus.png'),
- 						order: 1
- 					},
- 
-@@ -714,11 +716,11 @@
- 			};
- 		},
- 
--		
-+
- 		/**
- 		 * Determines whether an element should have a "Display Text" field in the Link dialog.
- 		 *
--		 * @since 4.5.11 
-+		 * @since 4.5.11
- 		 * @param {CKEDITOR.dom.element/null} element Selected element, `null` if none selected or if a ranged selection
- 		 * is made.
- 		 * @param {CKEDITOR.editor} editor The editor instance for which the check is performed.
+@@ -74,12 +74,14 @@
+        editor.ui.addButton( 'Link', {
+          label: editor.lang.link.toolbar,
+          command: 'link',
+-         toolbar: 'links,10'
++         toolbar: 'links,10',
++         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-plus.png'),
+        } );
+        editor.ui.addButton( 'Unlink', {
+          label: editor.lang.link.unlink,
+          command: 'unlink',
+-         toolbar: 'links,20'
++         toolbar: 'links,20',
++         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-minus.png'),
+        } );
+        editor.ui.addButton( 'Anchor', {
+          label: editor.lang.link.anchor.toolbar,
 diff --git a/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php b/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
-index 6fe8827..128d211 100755
+index d2c245e..e4272d7 100755
 --- a/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
 +++ b/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
 @@ -22,7 +22,7 @@ class AnchorLink extends CKEditorPluginBase {
    function getFile() {
      return drupal_get_path('module', 'anchor_link') . '/js/plugins/link/plugin.js';
    }
--  
+-
 +
    /**
     * {@inheritdoc}
     */
 @@ -37,7 +37,7 @@ public function getDependencies(Editor $editor) {
    public function getLibraries(Editor $editor) {
-     return array();
+     return [];
    }
--  
+-
 +
      /**
     * {@inheritdoc}
     */
-@@ -52,7 +52,7 @@ function getButtons() {
-     return array(
-       'Link' => array(
+@@ -52,11 +52,11 @@ function getButtons() {
+     return [
+       'Link' => [
          'label' => t('Link'),
 -        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/link.png',
 +        'image' => drupal_get_path('module', 'anchor_link') . '../../../../../../themes/alumni/img/link-plus.png',
-       ),
-       'Unlink' => array(
+       ],
+       'Unlink' => [
          'label' => t('Unlink'),
+-        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/unlink.png',
++        'image' => drupal_get_path('module', 'anchor_link') . '../../../../../../themes/alumni/img/link-minus.png',
+       ],
+       'Anchor' => [
+         'label' => t('Anchor'),
