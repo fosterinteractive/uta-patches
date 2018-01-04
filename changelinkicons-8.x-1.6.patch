@@ -1,7 +1,7 @@
-diff --git a/modules/contrib/anchor_link/js/plugins/link/plugin.js b/modules/contrib/anchor_link/js/plugins/link/plugin.js
+diff --git a/js/plugins/link/plugin.js b/js/plugins/link/plugin.js
 index fce564c41..86f681a6a 100755
---- a/modules/contrib/anchor_link/js/plugins/link/plugin.js
-+++ b/modules/contrib/anchor_link/js/plugins/link/plugin.js
+--- a/js/plugins/link/plugin.js
++++ b/js/plugins/link/plugin.js
 @@ -74,12 +74,14 @@
  				editor.ui.addButton( 'Link', {
  					label: editor.lang.link.toolbar,
@@ -19,10 +19,10 @@ index fce564c41..86f681a6a 100755
  				} );
  				editor.ui.addButton( 'Anchor', {
  					label: editor.lang.link.anchor.toolbar,
-diff --git a/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php b/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+diff --git a/src/Plugin/CKEditorPlugin/AnchorLink.php b/src/Plugin/CKEditorPlugin/AnchorLink.php
 index d2c245e47..eed0c711e 100755
---- a/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
-+++ b/modules/contrib/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+--- a/src/Plugin/CKEditorPlugin/AnchorLink.php
++++ b/src/Plugin/CKEditorPlugin/AnchorLink.php
 @@ -52,11 +52,11 @@ function getButtons() {
      return [
        'Link' => [
