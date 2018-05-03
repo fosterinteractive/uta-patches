@@ -1,0 +1,39 @@
+diff --git a/js/plugins/link/plugin.js b/js/plugins/link/plugin.js
+index fce564c41..86f681a6a 100755
+--- a/js/plugins/link/plugin.js
++++ b/js/plugins/link/plugin.js
+@@ -74,12 +74,14 @@
+ 				editor.ui.addButton( 'Link', {
+ 					label: editor.lang.link.toolbar,
+ 					command: 'link',
+-					toolbar: 'links,10'
++					toolbar: 'links,10',
++          icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-plus.png')
+ 				} );
+ 				editor.ui.addButton( 'Unlink', {
+ 					label: editor.lang.link.unlink,
+ 					command: 'unlink',
+-					toolbar: 'links,20'
++					toolbar: 'links,20',
++          icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-minus.png')
+ 				} );
+ 				editor.ui.addButton( 'Anchor', {
+ 					label: editor.lang.link.anchor.toolbar,
+diff --git a/src/Plugin/CKEditorPlugin/AnchorLink.php b/src/Plugin/CKEditorPlugin/AnchorLink.php
+index d2c245e47..eed0c711e 100755
+--- a/src/Plugin/CKEditorPlugin/AnchorLink.php
++++ b/src/Plugin/CKEditorPlugin/AnchorLink.php
+@@ -52,11 +52,11 @@ function getButtons() {
+     return [
+       'Link' => [
+         'label' => t('Link'),
+-        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/link.png',
++        'image' => drupal_get_path('theme', 'alumni') . '/img-src/link-plus.png',
+       ],
+       'Unlink' => [
+         'label' => t('Unlink'),
+-        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/unlink.png',
++        'image' => drupal_get_path('theme', 'alumni') . '/img-src/link-minus.png',
+       ],
+       'Anchor' => [
+         'label' => t('Anchor'),
