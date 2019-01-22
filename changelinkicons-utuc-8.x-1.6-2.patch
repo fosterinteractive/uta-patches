@@ -1,5 +1,5 @@
 diff --git a/js/plugins/link/plugin.js b/js/plugins/link/plugin.js
-index fce564c..fbba593 100755
+index fce564c41..86f681a6a 100755
 --- a/js/plugins/link/plugin.js
 +++ b/js/plugins/link/plugin.js
 @@ -74,12 +74,14 @@
@@ -8,40 +8,22 @@ index fce564c..fbba593 100755
           command: 'link',
 -         toolbar: 'links,10'
 +         toolbar: 'links,10',
-+         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/uc/images/link-plus.png')
++          icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/uc/images/link-plus.png')
         } );
         editor.ui.addButton( 'Unlink', {
           label: editor.lang.link.unlink,
           command: 'unlink',
 -         toolbar: 'links,20'
 +         toolbar: 'links,20',
-+         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/uc/images/link-minus.png')
++          icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/uc/images/link-minus.png')
         } );
         editor.ui.addButton( 'Anchor', {
           label: editor.lang.link.anchor.toolbar,
 diff --git a/src/Plugin/CKEditorPlugin/AnchorLink.php b/src/Plugin/CKEditorPlugin/AnchorLink.php
-index d2c245e..d7f3b35 100755
+index d2c245e47..eed0c711e 100755
 --- a/src/Plugin/CKEditorPlugin/AnchorLink.php
 +++ b/src/Plugin/CKEditorPlugin/AnchorLink.php
-@@ -22,7 +22,7 @@ class AnchorLink extends CKEditorPluginBase {
-   function getFile() {
-     return drupal_get_path('module', 'anchor_link') . '/js/plugins/link/plugin.js';
-   }
--
-+
-   /**
-    * {@inheritdoc}
-    */
-@@ -37,7 +37,7 @@ class AnchorLink extends CKEditorPluginBase {
-   public function getLibraries(Editor $editor) {
-     return [];
-   }
--
-+
-     /**
-    * {@inheritdoc}
-    */
-@@ -52,11 +52,11 @@ class AnchorLink extends CKEditorPluginBase {
+@@ -52,11 +52,11 @@ function getButtons() {
      return [
        'Link' => [
          'label' => t('Link'),
