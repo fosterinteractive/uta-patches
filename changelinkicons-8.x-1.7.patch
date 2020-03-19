@@ -1,0 +1,39 @@
+diff --git a/anchor_link/js/plugins/link/plugin.js b/anchor_link/js/plugins/link/plugin.js
+index fce564c..71dca64 100755
+--- a/anchor_link/js/plugins/link/plugin.js
++++ b/anchor_link/js/plugins/link/plugin.js
+@@ -74,12 +74,14 @@
+ 				editor.ui.addButton( 'Link', {
+ 					label: editor.lang.link.toolbar,
+ 					command: 'link',
+-					toolbar: 'links,10'
++					toolbar: 'links,10',
++         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-plus.png')
+ 				} );
+ 				editor.ui.addButton( 'Unlink', {
+ 					label: editor.lang.link.unlink,
+ 					command: 'unlink',
+-					toolbar: 'links,20'
++					toolbar: 'links,20',
++         icon: CKEDITOR.getUrl(this.path + '../../../../../../themes/alumni/img-src/link-minus.png')
+ 				} );
+ 				editor.ui.addButton( 'Anchor', {
+ 					label: editor.lang.link.anchor.toolbar,
+diff --git a/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php b/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+index 16d5744..dde745f 100755
+--- a/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
++++ b/anchor_link/src/Plugin/CKEditorPlugin/AnchorLink.php
+@@ -53,11 +53,11 @@ class AnchorLink extends CKEditorPluginBase {
+     return [
+       'Link' => [
+         'label' => $this->t('Link'),
+-        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/link.png',
++        'image' => drupal_get_path('theme', 'alumni') . '/img-src/link-plus.png',
+       ],
+       'Unlink' => [
+         'label' => $this->t('Unlink'),
+-        'image' => drupal_get_path('module', 'anchor_link') . '/js/plugins/link/icons/unlink.png',
++        'image' => drupal_get_path('theme', 'alumni') . '/img-src/link-minus.png',
+       ],
+       'Anchor' => [
+         'label' => $this->t('Anchor'),
